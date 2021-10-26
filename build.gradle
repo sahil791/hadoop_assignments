@@ -1,7 +1,15 @@
-plugins {
-    id 'java'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.17'
+    }
 }
 
+apply plugin: 'java'
+apply plugin: "com.google.protobuf"
+apply plugin: 'idea'
 group 'org.example'
 version '1.0-SNAPSHOT'
 
@@ -21,6 +29,9 @@ dependencies {
     implementation group: 'org.apache.hbase', name: 'hbase-common', version: '0.98.6-hadoop2'
     implementation group: 'org.apache.hbase', name: 'hbase-client', version: '1.4.3'
     implementation group: 'org.apache.hbase', name: 'hbase-mapreduce', version: '2.1.0'
+    implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '3.17.3'
+    implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.17.3'
+    implementation 'com.google.protobuf:protobuf-gradle-plugin:0.8.17'
 
 }
 
