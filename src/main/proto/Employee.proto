@@ -10,6 +10,7 @@ message Employee {
   int32 salary = 4;
   string department = 5;
   Floor floor_number = 6;
+  int32 cafteria_code = 7;
 }
 
 enum Floor {

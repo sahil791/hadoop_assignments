@@ -8,9 +8,7 @@ import proto.employee.Employee;
 import proto.employee.EmployeeList;
 import proto.employee.Floor;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 import static Constants.HDFSConstants.BUILDING_CSV_PATH;
 import static Constants.HDFSConstants.EMP_CSV_PATH;
@@ -21,13 +19,16 @@ import static Constants.HDFSConstants.EMP_CSV_PATH;
 
 public class ConvertCSVToProto {
 
-    public static void main(String[] args) throws InvalidProtocolBufferException {
+    public static void main(String[] args) throws IOException {
         //BuildingList.Building building = new BuildingList.Building();
         BuildingList.Builder buildingList = convertBuildingDataToProto();
         EmployeeList.Builder employeeList = convertEmployeeDataToProto();
         buildingList.build();
         employeeList.build();
         //System.out.println("csv converted");
+//        writeToFile(null,employeeList, new File("EmployeeSerializedFile"));
+//        writeToFile(buildingList,null, new File("BuildingSerializedFile"));
+
         String buildingProtoToJson = JsonFormat.printer().print(buildingList);
         String employeeProtoToJson = JsonFormat.printer().print(employeeList);
         System.out.println(buildingProtoToJson);
@@ -86,5 +87,21 @@ public class ConvertCSVToProto {
             e.printStackTrace();
         }
         return buildingList;
+    }
+
+    private static void writeToFile(BuildingList.Builder buildingList, EmployeeList.Builder employeeList, File fileName) throws IOException {
+        FileOutputStream empOutPutFile = new FileOutputStream(fileName);
+        JsonFormat.Printer printer = JsonFormat.printer()
+                .includingDefaultValueFields()
+                .preservingProtoFieldNames();
+        String jsonString=null;
+        if(buildingList != null) {
+            jsonString = printer.print(buildingList);
+        }else{
+            jsonString = printer.print(employeeList);
+        }
+
+        empOutPutFile.write(jsonString.getBytes());
+        empOutPutFile.close();
     }
 }

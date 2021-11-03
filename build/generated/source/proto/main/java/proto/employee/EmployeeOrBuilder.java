@@ -59,4 +59,10 @@ public interface EmployeeOrBuilder extends
    * @return The floorNumber.
    */
   proto.employee.Floor getFloorNumber();
+
+  /**
+   * <code>int32 cafteria_code = 7;</code>
+   * @return The cafteriaCode.
+   */
+  int getCafteriaCode();
 }

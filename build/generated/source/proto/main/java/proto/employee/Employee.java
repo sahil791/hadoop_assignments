@@ -84,6 +84,11 @@ private static final long serialVersionUID = 0L;
             floorNumber_ = rawValue;
             break;
           }
+          case 56: {
+
+            cafteriaCode_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -244,6 +249,17 @@ private static final long serialVersionUID = 0L;
     return result == null ? proto.employee.Floor.UNRECOGNIZED : result;
   }
 
+  public static final int CAFTERIA_CODE_FIELD_NUMBER = 7;
+  private int cafteriaCode_;
+  /**
+   * <code>int32 cafteria_code = 7;</code>
+   * @return The cafteriaCode.
+   */
+  @java.lang.Override
+  public int getCafteriaCode() {
+    return cafteriaCode_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -276,6 +292,9 @@ private static final long serialVersionUID = 0L;
     if (floorNumber_ != proto.employee.Floor.UNKNOWN.getNumber()) {
       output.writeEnum(6, floorNumber_);
     }
+    if (cafteriaCode_ != 0) {
+      output.writeInt32(7, cafteriaCode_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -307,6 +326,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, floorNumber_);
     }
+    if (cafteriaCode_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(7, cafteriaCode_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -333,6 +356,8 @@ private static final long serialVersionUID = 0L;
     if (!getDepartment()
         .equals(other.getDepartment())) return false;
     if (floorNumber_ != other.floorNumber_) return false;
+    if (getCafteriaCode()
+        != other.getCafteriaCode()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -356,6 +381,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDepartment().hashCode();
     hash = (37 * hash) + FLOOR_NUMBER_FIELD_NUMBER;
     hash = (53 * hash) + floorNumber_;
+    hash = (37 * hash) + CAFTERIA_CODE_FIELD_NUMBER;
+    hash = (53 * hash) + getCafteriaCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -501,6 +528,8 @@ private static final long serialVersionUID = 0L;
 
       floorNumber_ = 0;
 
+      cafteriaCode_ = 0;
+
       return this;
     }
 
@@ -533,6 +562,7 @@ private static final long serialVersionUID = 0L;
       result.salary_ = salary_;
       result.department_ = department_;
       result.floorNumber_ = floorNumber_;
+      result.cafteriaCode_ = cafteriaCode_;
       onBuilt();
       return result;
     }
@@ -600,6 +630,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.floorNumber_ != 0) {
         setFloorNumberValue(other.getFloorNumberValue());
+      }
+      if (other.getCafteriaCode() != 0) {
+        setCafteriaCode(other.getCafteriaCode());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -925,6 +958,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearFloorNumber() {
       
       floorNumber_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int cafteriaCode_ ;
+    /**
+     * <code>int32 cafteria_code = 7;</code>
+     * @return The cafteriaCode.
+     */
+    @java.lang.Override
+    public int getCafteriaCode() {
+      return cafteriaCode_;
+    }
+    /**
+     * <code>int32 cafteria_code = 7;</code>
+     * @param value The cafteriaCode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCafteriaCode(int value) {
+      
+      cafteriaCode_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 cafteria_code = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCafteriaCode() {
+      
+      cafteriaCode_ = 0;
       onChanged();
       return this;
     }

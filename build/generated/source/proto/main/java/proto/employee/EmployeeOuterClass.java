@@ -33,15 +33,15 @@ public final class EmployeeOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016Employee.proto\022\016proto.employee\"\225\001\n\010Emp" +
+      "\n\016Employee.proto\022\016proto.employee\"\254\001\n\010Emp" +
       "loyee\022\014\n\004name\030\001 \001(\t\022\023\n\013employee_id\030\002 \001(\005" +
       "\022\025\n\rbuilding_code\030\003 \001(\005\022\016\n\006salary\030\004 \001(\005\022" +
       "\022\n\ndepartment\030\005 \001(\t\022+\n\014floor_number\030\006 \001(" +
-      "\0162\025.proto.employee.Floor\";\n\014EmployeeList" +
-      "\022+\n\temployees\030\001 \003(\0132\030.proto.employee.Emp" +
-      "loyee*E\n\005Floor\022\013\n\007UNKNOWN\020\000\022\007\n\003ONE\020\001\022\007\n\003" +
-      "TWO\020\002\022\t\n\005THREE\020\003\022\010\n\004FOUR\020\004\022\010\n\004FIVE\020\005B\002P\001" +
-      "b\006proto3"
+      "\0162\025.proto.employee.Floor\022\025\n\rcafteria_cod" +
+      "e\030\007 \001(\005\";\n\014EmployeeList\022+\n\temployees\030\001 \003" +
+      "(\0132\030.proto.employee.Employee*E\n\005Floor\022\013\n" +
+      "\007UNKNOWN\020\000\022\007\n\003ONE\020\001\022\007\n\003TWO\020\002\022\t\n\005THREE\020\003\022" +
+      "\010\n\004FOUR\020\004\022\010\n\004FIVE\020\005B\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -52,7 +52,7 @@ public final class EmployeeOuterClass {
     internal_static_proto_employee_Employee_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_employee_Employee_descriptor,
-        new java.lang.String[] { "Name", "EmployeeId", "BuildingCode", "Salary", "Department", "FloorNumber", });
+        new java.lang.String[] { "Name", "EmployeeId", "BuildingCode", "Salary", "Department", "FloorNumber", "CafteriaCode", });
     internal_static_proto_employee_EmployeeList_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_proto_employee_EmployeeList_fieldAccessorTable = new
