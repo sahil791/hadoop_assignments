@@ -13,21 +13,16 @@ import java.io.*;
 import static Constants.HDFSConstants.BUILDING_CSV_PATH;
 import static Constants.HDFSConstants.EMP_CSV_PATH;
 
-//import static Constants.protoConstants.BUILDING_CSV_PATH;
-//import static Constants.protoConstants.EMP_CSV_PATH;
+
 
 
 public class ConvertCSVToProto {
 
     public static void main(String[] args) throws IOException {
-        //BuildingList.Building building = new BuildingList.Building();
         BuildingList.Builder buildingList = convertBuildingDataToProto();
         EmployeeList.Builder employeeList = convertEmployeeDataToProto();
         buildingList.build();
         employeeList.build();
-        //System.out.println("csv converted");
-//        writeToFile(null,employeeList, new File("EmployeeSerializedFile"));
-//        writeToFile(buildingList,null, new File("BuildingSerializedFile"));
 
         String buildingProtoToJson = JsonFormat.printer().print(buildingList);
         String employeeProtoToJson = JsonFormat.printer().print(employeeList);
@@ -43,9 +38,6 @@ public class ConvertCSVToProto {
             String line = br.readLine();
             while ((line = br.readLine()) != null && !line.isEmpty()) {
                 String[] data = line.split(",");
-                //System.out.println(br.readLine());
-                //building_code,total_floors,companies_in_the_building,cafteria_code
-                //name,employee_id,building_code,floor_number,salary,department
                 Employee.Builder employee = Employee.newBuilder();
                 employee.setName((data[0]));
                 employee.setEmployeeId(Integer.parseInt(data[1]));
@@ -55,7 +47,6 @@ public class ConvertCSVToProto {
                 employee.setDepartment((data[5]));
                 employee.build();
                 employeeList.addEmployees(employee);
-                //System.out.println(employee.getBuildingCode());
             }
 
         } catch (NullPointerException | NumberFormatException | IOException  e) {
@@ -71,8 +62,6 @@ public class ConvertCSVToProto {
             String line = br.readLine();
             while ((line = br.readLine()) != null && !line.isEmpty()) {
                 String[] data = line.split(",");
-                //System.out.println(br.readLine());
-                //building_code,total_floors,companies_in_the_building,cafteria_code
                 Building.Builder building = Building.newBuilder();
                 building.setBuildingCode(Integer.parseInt(data[0]));
                 building.setTotalFloors(Integer.parseInt(data[1]));
@@ -80,7 +69,6 @@ public class ConvertCSVToProto {
                 building.setCafteriaCode(Integer.parseInt(data[3]));
                 building.build();
                 buildingList.addBuildings(building);
-                //System.out.println(building.getBuildingCode());
             }
 
         } catch (NullPointerException | NumberFormatException | IOException  e) {

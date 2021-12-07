@@ -57,7 +57,6 @@ public class ReducerClass extends TableReducer<IntWritable, Result, ImmutableByt
         String department = employee.getDepartment();
         int floor = employee.getFloorNumber().getNumber();
         int cafeteria_code = employee.getCafteriaCode();
-        //System.out.println("emp_id= "+employee_id+" caf="+cafeteria_code);
         System.out.println("employee with Cafeteria code : " + employee);
         Put put = new Put(Bytes.toBytes(employee_id));
         put.addColumn(Bytes.toBytes("name"), Bytes.toBytes("name"), Bytes.toBytes(name));
